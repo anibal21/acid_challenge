@@ -9,8 +9,7 @@ export const getData = ( name ) => {
 
 export const consumer = (lat, lon) => {
     return dispatch => {
-        axios.get('https://api.darksky.net/forecast/fd426e7cd961bafdb8c00cb8e06084bd/' + lat + ',' + lon, {
-            headers: {"Access-Control-Allow-Origin": "*"}})
+        axios.get('http://localhost:8000/?lat=' + lat + '&lon=' + lon)
             .then( response => {
                 console.log(response.data)
                //dispatch(setIngredients(response.data));
