@@ -9,10 +9,9 @@ const modalCmp = (props) => {
     return (
         <div>
             <Modal isOpen={props.modal} toggle={props.handler} >
-                <ModalHeader toggle={props.handler}>({`${lat}`}, {`${lon}`}) - Ciudad</ModalHeader>
+                <ModalHeader toggle={props.handler}>({`${lat}`}, {`${lon}`}) - {props.timezone}</ModalHeader>
                 <ModalBody>
-                    Temperatura : null,
-                    Estacion    : null
+                    Temperatura : {props.temp}
                 </ModalBody>
                 <ModalFooter>
                     <Button color="secondary" onClick={props.handler}>Salir</Button>

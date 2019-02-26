@@ -94,10 +94,24 @@ export class MapContainer extends Component {
                 >
                     {marker}
                 </Map>
-                <Modal modal={this.state.modal} handler={this.toggleModal} lat={this.state.fields.lat} lon={this.state.fields.lon}/>
+                <Modal 
+                    modal={this.state.modal} 
+                    handler={this.toggleModal} 
+                    lat={this.state.fields.lat} 
+                    lon={this.state.fields.lon} 
+                    temp = {this.props.temp}
+                    timezone = {this.props.timezone}
+                />
             </Aux>
         );
   }
+}
+
+const mapStateToProps = state => {
+    return {
+        temp: state.temperature,
+        timezone: state.timezone
+    };
 }
 
 const mapDispatchToProps = dispatch => {
@@ -106,4 +120,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(GoogleApiWrapper({apiKey: 'AIzaSyB7du2kE6luzNHRyrr0X0__9DJCk-uugW0'})(MapContainer))
+export default connect(mapStateToProps, mapDispatchToProps)(GoogleApiWrapper({apiKey: 'AIzaSyB7du2kE6luzNHRyrr0X0__9DJCk-uugW0'})(MapContainer))
