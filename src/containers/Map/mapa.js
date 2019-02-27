@@ -101,6 +101,7 @@ export class MapContainer extends Component {
                     lon={this.state.fields.lon} 
                     temp = {this.props.temp}
                     timezone = {this.props.timezone}
+                    time = {this.props.time}
                 />
             </Aux>
         );
@@ -110,7 +111,8 @@ export class MapContainer extends Component {
 const mapStateToProps = state => {
     return {
         temp: state.temperature,
-        timezone: state.timezone
+        timezone: state.timezone,
+        time: state.time
     };
 }
 

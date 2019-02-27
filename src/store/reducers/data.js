@@ -3,13 +3,15 @@ import { updateObject } from '../utility';
 
 const initialState = {
     temperature : null,
-    timezone: null
+    timezone: null,
+    time: null
 }
 
 const getData = (state, action) => {
     return updateObject( state, {
         temperature: action.json.currently.temperature,
-        timezone: action.json.timezone
+        timezone: action.json.timezone,
+        time : action.json.currently.summary        
     } );
 
 };
